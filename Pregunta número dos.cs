@@ -16,5 +16,10 @@ namespace Exámen_de_geografía
         {
             InitializeComponent();
         }
+
+        private void Pnum2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

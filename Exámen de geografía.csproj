@@ -73,6 +73,12 @@
     <Compile Include="Pregunta número uno.Designer.cs">
       <DependentUpon>Pregunta número uno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Preguntas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Preguntas.Designer.cs">
+      <DependentUpon>Preguntas.cs</DependentUpon>
+    </Compile>
     <Compile Include="username.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     <EmbeddedResource Include="Pregunta número uno.resx">
       <DependentUpon>Pregunta número uno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Preguntas.resx">
+      <DependentUpon>Preguntas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="username.resx">
       <DependentUpon>username.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +107,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -123,6 +133,66 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ALEMANIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ARGENTINA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AUSTRALIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BRASIL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CANADA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CHINA1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\COLOMBIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\COREA DEL SUR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EGIPTO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ESPAÑA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FRANCIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\INDIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ITALIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JAPON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MEXICO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PORTUGAL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\REINO UNIDO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RUSIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SUECIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TURQUIA.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

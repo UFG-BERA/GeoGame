@@ -136,6 +136,7 @@
             this.Name = "Pnum2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pregunta número dos";
+            this.Load += new System.EventHandler(this.Pnum2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.P2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
