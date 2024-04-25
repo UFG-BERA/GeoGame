@@ -117,6 +117,7 @@
             this.S2F2.TabIndex = 13;
             this.S2F2.Text = "Siguiente.";
             this.S2F2.UseVisualStyleBackColor = false;
+            this.S2F2.Click += new System.EventHandler(this.S2F2_Click);
             // 
             // Pnum2
             // 

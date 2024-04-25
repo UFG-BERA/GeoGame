@@ -13,6 +13,17 @@ namespace Exámen_de_geografía
     public partial class Preguntas : Form
     {
 
+        string nombre_usuario;
+        public Preguntas(string Ningresado)
+        {
+            InitializeComponent();
+            nombre_usuario = Ningresado;
+        }
+
+
+
+
+
         //VARIABLES
 
         int respuestaCorrecta;

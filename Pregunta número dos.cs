@@ -21,5 +21,12 @@ namespace Exámen_de_geografía
         {
 
         }
+
+        private void S2F2_Click(object sender, EventArgs e)
+        {
+            Preguntas preguntas = new Preguntas();
+            preguntas.ShowDialog();
+            this.Hide();
+        }
     }
 }
