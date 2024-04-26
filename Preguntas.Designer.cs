@@ -112,6 +112,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Preguntas";
             this.Text = "Juego de Geografía";
+            this.Load += new System.EventHandler(this.Preguntas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

@@ -61,18 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pregunta número dos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pregunta número dos.Designer.cs">
-      <DependentUpon>Pregunta número dos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pregunta número uno.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pregunta número uno.Designer.cs">
-      <DependentUpon>Pregunta número uno.cs</DependentUpon>
-    </Compile>
     <Compile Include="Preguntas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,12 +75,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Pregunta número dos.resx">
-      <DependentUpon>Pregunta número dos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pregunta número uno.resx">
-      <DependentUpon>Pregunta número uno.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Preguntas.resx">
       <DependentUpon>Preguntas.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +175,66 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TURQUIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VENEZUELA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MALASIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UCRANIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MARRUECOS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BANGLADESH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ROMANIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ISLANDIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SUDAN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CROACIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FINLANDIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ANGOLA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LAOS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ECUADOR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ARMENIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BULGARIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ESLOVENIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SERBIA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GHANA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NEPAL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MALAWI.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

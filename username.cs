@@ -48,8 +48,9 @@ namespace Exámen_de_geografía
 
         private void Iboton_Click(object sender, EventArgs e)
         {
-            using (Pnum1 PregNum1 = new Pnum1(NIngresado.Text))
-                PregNum1.ShowDialog();
+            Preguntas preguntas = new Preguntas();
+            preguntas.ShowDialog();
+            this.Hide();
         }
     }
 }
