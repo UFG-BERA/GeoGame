@@ -13,6 +13,9 @@ namespace Exámen_de_geografía
 {
     public partial class Preguntas : Form
     {
+        //Variables para el temporizador
+        int s = 0;
+        int m = 0;
         //Se establece la forma de obtener el número Random
         Random rand = new Random();
 
@@ -29,6 +32,7 @@ namespace Exámen_de_geografía
         int respuestaCorrecta; 
         int numeroPregunta = 1;
         int score;
+        int NPreguntas;
         int porcentaje; //Porcentaje de preguntas respondidas correctamente
         int totalPreguntas;
 
@@ -42,6 +46,10 @@ namespace Exámen_de_geografía
 
             //Total de preguntas dentro del quiz
             totalPreguntas = 10;
+
+            //Datos pare el inicio del temporizador
+            m = 1;
+            countdownTimer.Start();
         }
 
         private void revisionRespuestaEvento(object sender, EventArgs e)
@@ -50,26 +58,51 @@ namespace Exámen_de_geografía
 
             int tagBoton = Convert.ToInt32(objetoEnviador.Tag);
 
-            if (tagBoton == respuestaCorrecta) 
-            {//Score que envía el total de respuestas correctas dentro de las 10 preguntadas
-                score++;
+            if (tagBoton == respuestaCorrecta)
+            {
+                // Incremento en caso de Responder correctamente
+                score += 10;
+                NPreguntas++;
+
             }
+            else if (tagBoton != respuestaCorrecta && score <= 0)
+            {
+                //estatico solo para no entrar en numero negativos
+                score = 0;
+            }
+            else
+            {
+                // Decremento en Caso de fallar la pregunta
+                score -= 5;
+            }
+            //código para cambio de color (esta incompleto)
+            //objetoEnviador.BackColor = tagBoton == respuestaCorrecta ? Color.Green : Color.Red;
+
+            //texto que define el score
+            LabelScore.Text = "Score: " + score.ToString();
 
 
             if (numeroPregunta == totalPreguntas)
             {
+                //GameOver Endgame = new GameOver();
+                ////? ayuda
+                ////AddOwnedForm(Endgame);
+                ////Endgame.lblScore.Text = this.score.ToString();
+                //Endgame.Show();
+                //this.Dispose();
 
                 porcentaje = (int)Math.Round((double)(score * 100) / totalPreguntas);
 
 
                 MessageBox.Show(
                     "Quiz terminado"+Environment.NewLine +  
-                    "Has respondido " + score + "preguntas correctamente." +Environment.NewLine + 
+                    "Has respondido " + NPreguntas + "preguntas correctamente." +Environment.NewLine + 
                     "Su porcentaje total es " + porcentaje + "%" + Environment.NewLine + 
                     "Haga click en OK para jugar de nuevo"
                     );
 
-                score = 0;
+                //score = 0;
+                NPreguntas = 0;
                 numeroPregunta = 0;
                 preguntarCuestion(numeroPregunta);
 
@@ -632,6 +665,35 @@ namespace Exámen_de_geografía
         }
 
         private void Preguntas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblScreen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void countdownTimer_Tick(object sender, EventArgs e)
+        {
+            lblScreen.Text = s--.ToString();
+
+            //If para el que el temporizador pare al finalizar las preguntas o que se acabe el tiempo
+            if (numeroPregunta == totalPreguntas || s <= 0 && m <= 0)
+            {
+                countdownTimer.Stop();
+            }
+
+            if (s <= 0 && m > 0)
+            {
+                s = 59;
+                m -= 1;
+            }
+            //Formato que recibe el temporizador
+            lblScreen.Text = $"{m:00}:{s:00}";
+        }
+
+        private void LabelScore_Click(object sender, EventArgs e)
         {
 
         }
