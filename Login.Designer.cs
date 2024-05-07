@@ -71,7 +71,7 @@
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(265, 76);
             btnLogin.TabIndex = 2;
-            btnLogin.Text = "Ingresar";
+            btnLogin.Text = "INICIAR JUEGO";
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.MouseClick += btnLogin_MouseClick;
             // 

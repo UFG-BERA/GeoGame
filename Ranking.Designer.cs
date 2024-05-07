@@ -33,9 +33,14 @@
             // 
             // lstResultados
             // 
-            lstResultados.Location = new Point(329, 114);
+            lstResultados.Alignment = ListViewAlignment.SnapToGrid;
+            lstResultados.Dock = DockStyle.Fill;
+            lstResultados.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lstResultados.GridLines = true;
+            lstResultados.Location = new Point(0, 0);
             lstResultados.Name = "lstResultados";
-            lstResultados.Size = new Size(121, 97);
+            lstResultados.Size = new Size(800, 450);
+            lstResultados.Sorting = SortOrder.Ascending;
             lstResultados.TabIndex = 0;
             lstResultados.UseCompatibleStateImageBehavior = false;
             lstResultados.View = View.List;

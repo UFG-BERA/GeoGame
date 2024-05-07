@@ -13,12 +13,19 @@
 
         private void llbScore_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            VerRanking();
+        }
+
+        void VerRanking()
+        {
             GuardarClasificacion();
             Ranking ranking = new();
             this.Hide(); // Oculta la ventana actual
             ranking.ShowDialog(); // Muestra la nueva ventana y espera a que se cierre
             this.Close(); // Cierra definitivamente la ventana original
         }
+
+
         void GuardarClasificacion()
         {
             string username = lblUsername.Text;
@@ -41,6 +48,14 @@
             this.Hide(); // Oculta la ventana actual
             preguntas.ShowDialog(); // Muestra la nueva ventana y espera a que se cierre
             this.Close(); // Cierra definitivamente la ventana original
+        }
+
+        private void Score_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                VerRanking();
+            }
         }
     }
 

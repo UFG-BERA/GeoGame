@@ -37,10 +37,11 @@ namespace GeoGame
 
                 // Mostrar los resultados en un ListBox u otro control
                 lstResultados.Items.Clear();
+                lstResultados.Items.Add("# - Nombre - Puntuacion");
                 for (int i = 0; i < sortedScores.Count; i++)
                 {
                     var entry = sortedScores[i];
-                    lstResultados.Items.Add($"{i + 1}. {entry.Username} {entry.Score}");
+                    lstResultados.Items.Add($"{i + 1}. - {entry.Username} - {entry.Score}");
                 }
 
                 // Si deseas, puedes reescribir el archivo ordenado para conservar los resultados

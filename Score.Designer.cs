@@ -36,88 +36,115 @@
             lblAciertos = new Label();
             lblFallos = new Label();
             btnReinentar = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // llbScore
             // 
             llbScore.AutoSize = true;
-            llbScore.Location = new Point(279, 130);
+            llbScore.Cursor = Cursors.Hand;
+            llbScore.Font = new Font("Showcard Gothic", 18F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            llbScore.Location = new Point(387, 152);
             llbScore.Name = "llbScore";
-            llbScore.Size = new Size(13, 15);
+            llbScore.Size = new Size(27, 30);
             llbScore.TabIndex = 0;
             llbScore.TabStop = true;
             llbScore.Text = "0";
+            llbScore.TextAlign = ContentAlignment.MiddleCenter;
             llbScore.LinkClicked += llbScore_LinkClicked;
             // 
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Location = new Point(252, 40);
+            lblUsername.Font = new Font("Showcard Gothic", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUsername.Location = new Point(12, 9);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(59, 15);
+            lblUsername.Size = new Size(190, 40);
             lblUsername.TabIndex = 1;
             lblUsername.Text = "username";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(252, 76);
+            label2.Font = new Font("Showcard Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(221, 104);
             label2.Name = "label2";
-            label2.Size = new Size(68, 15);
+            label2.Size = new Size(350, 33);
             label2.TabIndex = 2;
-            label2.Text = "Puntuación";
+            label2.Text = "Tu puntuación fue de:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(136, 222);
+            label3.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(12, 376);
             label3.Name = "label3";
-            label3.Size = new Size(92, 15);
+            label3.Size = new Size(180, 20);
             label3.TabIndex = 3;
             label3.Text = "Total de aciertos";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(136, 253);
+            label4.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(12, 418);
             label4.Name = "label4";
-            label4.Size = new Size(79, 15);
+            label4.Size = new Size(157, 20);
             label4.TabIndex = 4;
             label4.Text = "Total de fallos";
             // 
             // lblAciertos
             // 
             lblAciertos.AutoSize = true;
-            lblAciertos.Location = new Point(294, 220);
+            lblAciertos.FlatStyle = FlatStyle.Flat;
+            lblAciertos.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAciertos.ForeColor = Color.Green;
+            lblAciertos.Location = new Point(190, 371);
             lblAciertos.Name = "lblAciertos";
-            lblAciertos.Size = new Size(13, 15);
+            lblAciertos.Size = new Size(25, 25);
             lblAciertos.TabIndex = 5;
             lblAciertos.Text = "0";
             // 
             // lblFallos
             // 
             lblFallos.AutoSize = true;
-            lblFallos.Location = new Point(294, 253);
+            lblFallos.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFallos.ForeColor = Color.Red;
+            lblFallos.Location = new Point(167, 413);
             lblFallos.Name = "lblFallos";
-            lblFallos.Size = new Size(13, 15);
+            lblFallos.Size = new Size(25, 25);
             lblFallos.TabIndex = 6;
             lblFallos.Text = "0";
             // 
             // btnReinentar
             // 
-            btnReinentar.Location = new Point(605, 374);
+            btnReinentar.Font = new Font("Showcard Gothic", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReinentar.ForeColor = SystemColors.ActiveCaptionText;
+            btnReinentar.Location = new Point(502, 376);
             btnReinentar.Name = "btnReinentar";
-            btnReinentar.Size = new Size(75, 23);
+            btnReinentar.Size = new Size(286, 62);
             btnReinentar.TabIndex = 7;
+            btnReinentar.Tag = "Volver a jugar";
             btnReinentar.Text = "Reintentar";
             btnReinentar.UseVisualStyleBackColor = true;
             btnReinentar.Click += btnReinentar_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Showcard Gothic", 18F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.Location = new Point(420, 152);
+            label1.Name = "label1";
+            label1.Size = new Size(106, 30);
+            label1.TabIndex = 8;
+            label1.Text = "Puntos";
             // 
             // Score
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
             Controls.Add(btnReinentar);
             Controls.Add(lblFallos);
             Controls.Add(lblAciertos);
@@ -128,6 +155,7 @@
             Controls.Add(llbScore);
             Name = "Score";
             Text = "Score";
+            KeyDown += Score_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -142,5 +170,6 @@
         private Label lblAciertos;
         private Label lblFallos;
         private Button btnReinentar;
+        private Label label1;
     }
 }
