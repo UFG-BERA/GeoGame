@@ -11,128 +11,85 @@ namespace GeoGame
         public string RespuestaCorrecta { get; set; }
         public string UrlImagen { get; set; }
 
-        public Pregunta(string textoPregunta, Dictionary<string, string> opciones, string respuestaCorrecta, string urlImagen)
+        public Pregunta(string textoPregunta, string respuestaCorrecta, string urlImagen)
         {
             TextoPregunta = textoPregunta;
-            Opciones = opciones;
             RespuestaCorrecta = respuestaCorrecta;
             UrlImagen = urlImagen;
-            MezclarOpciones(); // Llama al método para mezclar las opciones al crear la pregunta
-        }
-
-        private void MezclarOpciones()
-        {
-            Random rng = new Random();
-            var opcionesMezcladas = Opciones.OrderBy(x => rng.Next()).ToDictionary(item => item.Key, item => item.Value);
-            Opciones = opcionesMezcladas;
-
-            // Actualizar la clave de la respuesta correcta después de mezclar
-            foreach (var kvp in Opciones)
-            {
-                if (kvp.Value == Opciones[RespuestaCorrecta])
-                {
-                    RespuestaCorrecta = kvp.Key;
-                    break;
-                }
-            }
+            Opciones = new Dictionary<string, string>();
         }
     }
 
     public class PreguntasYRespuestas
     {
         public List<Pregunta> ListaPreguntas { get; private set; }
+        private List<string> TodasLasRespuestas;
+        private Random rng;
 
         public PreguntasYRespuestas()
         {
+            rng = new Random();
             ListaPreguntas = new List<Pregunta>();
             CargarPreguntas();
         }
 
         private void CargarPreguntas()
         {
-            ListaPreguntas.Add(new Pregunta(
-                "¿Cuál es la capital de Francia?",
-                new Dictionary<string, string>
-                {
-                    {"a", "París"},
-                    {"b", "Barcelona"},
-                    {"c", "Lisboa"},
-                    {"d", "Atenas"}
-                },
-                "a",
-                "FRANCIA.png"
-            ));
+            // Añadir todas las preguntas
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Francia?", "París", "FRANCIA.png"));
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Italia?", "Roma", "ITALIA.png"));
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Japón?", "Tokio", "JAPON.png"));
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Alemania?", "Berlín", "ALEMANIA.png"));
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de España?", "Madrid", "ESPAñA.png"));
 
-            ListaPreguntas.Add(new Pregunta(
-                "¿Cuál es la capital de Italia?",
-                new Dictionary<string, string>
-                {
-                    {"a", "Madrid"},
-                    {"b", "París"},
-                    {"c", "Roma"},
-                    {"d", "Viena"}
-                },
-                "c",
-                "ITALIA.png"
-            ));
-
-            ListaPreguntas.Add(new Pregunta(
-                "¿Cuál es la capital de Japón?",
-                new Dictionary<string, string>
-                {
-                    {"a", "Seúl"},
-                    {"b", "Bangkok"},
-                    {"c", "Pekín"},
-                    {"d", "Tokio"}
-                },
-                "d",
-                "JAPON.png"
-            ));
-
-            ListaPreguntas.Add(new Pregunta(
-                "¿Cuál es la capital de Alemania?",
-                new Dictionary<string, string>
-                {
-                    {"a", "Varsovia"},
-                    {"b", "Berlín"},
-                    {"c", "Ámsterdam"},
-                    {"d", "Viena"}
-                },
-                "b",
-                "ALEMANIA.png"
-            ));
-
-            ListaPreguntas.Add(new Pregunta(
-                "¿Cuál es la capital de España?",
-                new Dictionary<string, string>
-                {
-                    {"a", "Montreal"},
-                    {"b", "Roma"},
-                    {"c", "Madrid"},
-                    {"d", "Atenas"}
-                },
-                "c",
-                "ESPAñA.png"
-            ));
-
-            // Puedes seguir agregando más preguntas aquí
-
-            // Mezclar preguntas después de todas están añadidas
+            // Llama a los métodos para recolectar y distribuir respuestas
+            RecolectarRespuestas();
+            DistribuirRespuestas();
             MezclarPreguntas();
+        }
+
+        private void RecolectarRespuestas()
+        {
+            // Recolecta todas las respuestas correctas e incorrectas
+            TodasLasRespuestas = ListaPreguntas.Select(p => p.RespuestaCorrecta).ToList();
+            TodasLasRespuestas.AddRange(new List<string> { "Barcelona", "Lisboa", "Atenas", "Seúl", "Bangkok", "Pekín", "Varsovia", "Ámsterdam", "Viena" });
+
+            // Mezcla todas las respuestas
+            TodasLasRespuestas = TodasLasRespuestas.OrderBy(x => rng.Next()).ToList();
+        }
+
+        private void DistribuirRespuestas()
+        {
+            foreach (var pregunta in ListaPreguntas)
+            {
+                // Elige un subconjunto de respuestas incorrectas, incluyendo siempre la correcta
+                var respuestasOpciones = TodasLasRespuestas
+                    .Where(r => r != pregunta.RespuestaCorrecta)
+                    .OrderBy(x => rng.Next())
+                    .Take(3)
+                    .ToList();
+
+                respuestasOpciones.Add(pregunta.RespuestaCorrecta);
+                respuestasOpciones = respuestasOpciones.OrderBy(x => rng.Next()).ToList();
+
+                // Asigna las opciones mezcladas a la pregunta
+                pregunta.Opciones = new Dictionary<string, string>
+                {
+                    {"a", respuestasOpciones[0]},
+                    {"b", respuestasOpciones[1]},
+                    {"c", respuestasOpciones[2]},
+                    {"d", respuestasOpciones[3]}
+                };
+
+                // Encuentra la clave correcta en el nuevo conjunto de opciones
+                pregunta.RespuestaCorrecta = pregunta.Opciones.First(kvp => kvp.Value == pregunta.RespuestaCorrecta).Key;
+            }
         }
 
         private void MezclarPreguntas()
         {
-            Random rng = new Random();
-            int n = ListaPreguntas.Count;
-            while (n > 1)
-            {
-                n--;
-                int k = rng.Next(n + 1);
-                Pregunta valor = ListaPreguntas[k];
-                ListaPreguntas[k] = ListaPreguntas[n];
-                ListaPreguntas[n] = valor;
-            }
+            // Mezcla la lista completa de preguntas
+            ListaPreguntas = ListaPreguntas.OrderBy(x => rng.Next()).ToList();
         }
     }
 }
