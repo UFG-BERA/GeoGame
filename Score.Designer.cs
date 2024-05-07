@@ -35,6 +35,7 @@
             label4 = new Label();
             lblAciertos = new Label();
             lblFallos = new Label();
+            btnReinentar = new Button();
             SuspendLayout();
             // 
             // llbScore
@@ -46,6 +47,7 @@
             llbScore.TabIndex = 0;
             llbScore.TabStop = true;
             llbScore.Text = "0";
+            llbScore.LinkClicked += llbScore_LinkClicked;
             // 
             // lblUsername
             // 
@@ -101,11 +103,22 @@
             lblFallos.TabIndex = 6;
             lblFallos.Text = "0";
             // 
+            // btnReinentar
+            // 
+            btnReinentar.Location = new Point(605, 374);
+            btnReinentar.Name = "btnReinentar";
+            btnReinentar.Size = new Size(75, 23);
+            btnReinentar.TabIndex = 7;
+            btnReinentar.Text = "Reintentar";
+            btnReinentar.UseVisualStyleBackColor = true;
+            btnReinentar.Click += btnReinentar_Click;
+            // 
             // Score
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnReinentar);
             Controls.Add(lblFallos);
             Controls.Add(lblAciertos);
             Controls.Add(label4);
@@ -128,5 +141,6 @@
         private Label label4;
         private Label lblAciertos;
         private Label lblFallos;
+        private Button btnReinentar;
     }
 }

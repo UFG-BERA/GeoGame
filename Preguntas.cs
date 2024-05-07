@@ -65,7 +65,7 @@ namespace GeoGame
             }
             else
             {
-                MessageBox.Show("No hay más preguntas.");
+                //MessageBox.Show("No hay más preguntas.");
                 TmrTemporizador.Stop();
                 stopwatch.Stop();
                 FinalizarQuiz();
@@ -112,7 +112,7 @@ namespace GeoGame
                 }
                 else
                 {
-                    MessageBox.Show("Todas las preguntas han sido respondidas.");
+                    //MessageBox.Show("Todas las preguntas han sido respondidas.");
                     TmrTemporizador.Stop();
                     stopwatch.Stop();
                     FinalizarQuiz();
