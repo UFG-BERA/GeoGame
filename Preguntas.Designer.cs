@@ -1,4 +1,4 @@
-﻿namespace Exámen_de_geografía
+﻿namespace GeoGame
 {
     partial class Preguntas
     {
@@ -28,140 +28,199 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblPregunta = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.lblScreen = new System.Windows.Forms.Label();
-            this.countdownTimer = new System.Windows.Forms.Timer(this.components);
-            this.LabelScore = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            picPregunta = new PictureBox();
+            lblScoreTitulo = new Label();
+            lblScore = new Label();
+            lblTemporizador = new Label();
+            label2 = new Label();
+            lblPregunta = new Label();
+            btnRespuestaA = new Button();
+            btnRespuestaB = new Button();
+            btnRespuestaC = new Button();
+            btnRespuestaD = new Button();
+            lblUserName = new Label();
+            TmrTemporizador = new System.Windows.Forms.Timer(components);
+            lblCorrecto = new Label();
+            lblIncorrecto = new Label();
+            ((System.ComponentModel.ISupportInitialize)picPregunta).BeginInit();
+            SuspendLayout();
             // 
-            // pictureBox1
+            // picPregunta
             // 
-            this.pictureBox1.Image = global::Exámen_de_geografía.Properties.Resources.ARGENTINA;
-            this.pictureBox1.Location = new System.Drawing.Point(205, 38);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(460, 294);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            picPregunta.Location = new Point(228, 12);
+            picPregunta.Name = "picPregunta";
+            picPregunta.Size = new Size(359, 221);
+            picPregunta.TabIndex = 0;
+            picPregunta.TabStop = false;
+            // 
+            // lblScoreTitulo
+            // 
+            lblScoreTitulo.AutoSize = true;
+            lblScoreTitulo.Font = new Font("Microsoft Sans Serif", 24.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblScoreTitulo.Location = new Point(22, 46);
+            lblScoreTitulo.Name = "lblScoreTitulo";
+            lblScoreTitulo.Size = new Size(200, 38);
+            lblScoreTitulo.TabIndex = 1;
+            lblScoreTitulo.Text = "Puntuación:";
+            // 
+            // lblScore
+            // 
+            lblScore.AutoSize = true;
+            lblScore.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblScore.Location = new Point(97, 84);
+            lblScore.Name = "lblScore";
+            lblScore.Size = new Size(32, 33);
+            lblScore.TabIndex = 2;
+            lblScore.Text = "0";
+            // 
+            // lblTemporizador
+            // 
+            lblTemporizador.AutoSize = true;
+            lblTemporizador.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTemporizador.Location = new Point(602, 67);
+            lblTemporizador.Name = "lblTemporizador";
+            lblTemporizador.Size = new Size(152, 33);
+            lblTemporizador.TabIndex = 4;
+            lblTemporizador.Text = "01:00:000";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 24.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(611, 29);
+            label2.Name = "label2";
+            label2.Size = new Size(141, 38);
+            label2.TabIndex = 3;
+            label2.Text = "Tiempo:";
             // 
             // lblPregunta
             // 
-            this.lblPregunta.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPregunta.Location = new System.Drawing.Point(37, 335);
-            this.lblPregunta.Name = "lblPregunta";
-            this.lblPregunta.Size = new System.Drawing.Size(736, 54);
-            this.lblPregunta.TabIndex = 1;
-            this.lblPregunta.Text = "PREGUNTA";
-            this.lblPregunta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblPregunta.AutoSize = true;
+            lblPregunta.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPregunta.Location = new Point(352, 236);
+            lblPregunta.Name = "lblPregunta";
+            lblPregunta.Size = new Size(94, 24);
+            lblPregunta.TabIndex = 6;
+            lblPregunta.Text = "Pregunta";
+            lblPregunta.TextAlign = ContentAlignment.TopCenter;
             // 
-            // button1
+            // btnRespuestaA
             // 
-            this.button1.Location = new System.Drawing.Point(42, 403);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(300, 55);
-            this.button1.TabIndex = 2;
-            this.button1.Tag = "1";
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.revisionRespuestaEvento);
+            btnRespuestaA.Location = new Point(123, 275);
+            btnRespuestaA.Name = "btnRespuestaA";
+            btnRespuestaA.Size = new Size(184, 57);
+            btnRespuestaA.TabIndex = 7;
+            btnRespuestaA.Text = "Respuesta A";
+            btnRespuestaA.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnRespuestaB
             // 
-            this.button2.Location = new System.Drawing.Point(473, 403);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(300, 55);
-            this.button2.TabIndex = 3;
-            this.button2.Tag = "2";
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.revisionRespuestaEvento);
+            btnRespuestaB.Location = new Point(123, 348);
+            btnRespuestaB.Name = "btnRespuestaB";
+            btnRespuestaB.Size = new Size(184, 57);
+            btnRespuestaB.TabIndex = 8;
+            btnRespuestaB.Text = "Respuesta B";
+            btnRespuestaB.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnRespuestaC
             // 
-            this.button3.Location = new System.Drawing.Point(42, 485);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(300, 55);
-            this.button3.TabIndex = 4;
-            this.button3.Tag = "3";
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.revisionRespuestaEvento);
+            btnRespuestaC.Location = new Point(498, 275);
+            btnRespuestaC.Name = "btnRespuestaC";
+            btnRespuestaC.Size = new Size(184, 57);
+            btnRespuestaC.TabIndex = 9;
+            btnRespuestaC.Text = "Respuesta C";
+            btnRespuestaC.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnRespuestaD
             // 
-            this.button4.Location = new System.Drawing.Point(473, 485);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(300, 55);
-            this.button4.TabIndex = 5;
-            this.button4.Tag = "4";
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.revisionRespuestaEvento);
+            btnRespuestaD.Location = new Point(498, 348);
+            btnRespuestaD.Name = "btnRespuestaD";
+            btnRespuestaD.Size = new Size(184, 57);
+            btnRespuestaD.TabIndex = 10;
+            btnRespuestaD.Text = "Respuesta D";
+            btnRespuestaD.UseVisualStyleBackColor = true;
             // 
-            // lblScreen
+            // lblUserName
             // 
-            this.lblScreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScreen.Location = new System.Drawing.Point(694, 66);
-            this.lblScreen.Name = "lblScreen";
-            this.lblScreen.Size = new System.Drawing.Size(102, 44);
-            this.lblScreen.TabIndex = 7;
-            this.lblScreen.Text = "01:00";
-            this.lblScreen.Click += new System.EventHandler(this.lblScreen_Click);
+            lblUserName.AutoSize = true;
+            lblUserName.Location = new Point(91, 29);
+            lblUserName.Name = "lblUserName";
+            lblUserName.Size = new Size(62, 15);
+            lblUserName.TabIndex = 11;
+            lblUserName.Text = "UserName";
             // 
-            // countdownTimer
+            // TmrTemporizador
             // 
-            this.countdownTimer.Interval = 1000;
-            this.countdownTimer.Tick += new System.EventHandler(this.countdownTimer_Tick);
+            TmrTemporizador.Tick += TmrTemporizador_Tick;
             // 
-            // LabelScore
+            // lblCorrecto
             // 
-            this.LabelScore.AutoSize = true;
-            this.LabelScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelScore.Location = new System.Drawing.Point(34, 66);
-            this.LabelScore.Name = "LabelScore";
-            this.LabelScore.Size = new System.Drawing.Size(143, 39);
-            this.LabelScore.TabIndex = 8;
-            this.LabelScore.Text = "Score: 0";
-            this.LabelScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LabelScore.Click += new System.EventHandler(this.LabelScore_Click);
+            lblCorrecto.AutoSize = true;
+            lblCorrecto.BackColor = Color.Transparent;
+            lblCorrecto.Enabled = false;
+            lblCorrecto.Font = new Font("Segoe UI Black", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblCorrecto.ForeColor = Color.Lime;
+            lblCorrecto.Location = new Point(97, 159);
+            lblCorrecto.Name = "lblCorrecto";
+            lblCorrecto.Size = new Size(55, 37);
+            lblCorrecto.TabIndex = 12;
+            lblCorrecto.Text = "✔";
+            // 
+            // lblIncorrecto
+            // 
+            lblIncorrecto.AutoSize = true;
+            lblIncorrecto.BackColor = Color.Transparent;
+            lblIncorrecto.Enabled = false;
+            lblIncorrecto.Font = new Font("Segoe UI Black", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblIncorrecto.ForeColor = Color.Red;
+            lblIncorrecto.Location = new Point(665, 150);
+            lblIncorrecto.Name = "lblIncorrecto";
+            lblIncorrecto.Size = new Size(55, 37);
+            lblIncorrecto.TabIndex = 13;
+            lblIncorrecto.Text = "❌";
             // 
             // Preguntas
             // 
-            this.ClientSize = new System.Drawing.Size(808, 571);
-            this.Controls.Add(this.LabelScore);
-            this.Controls.Add(this.lblScreen);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.lblPregunta);
-            this.Controls.Add(this.pictureBox1);
-            this.Name = "Preguntas";
-            this.Text = "Juego de Geografía";
-            this.Load += new System.EventHandler(this.Preguntas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(777, 450);
+            Controls.Add(lblIncorrecto);
+            Controls.Add(lblCorrecto);
+            Controls.Add(lblUserName);
+            Controls.Add(btnRespuestaD);
+            Controls.Add(btnRespuestaC);
+            Controls.Add(btnRespuestaB);
+            Controls.Add(btnRespuestaA);
+            Controls.Add(lblPregunta);
+            Controls.Add(lblTemporizador);
+            Controls.Add(label2);
+            Controls.Add(lblScore);
+            Controls.Add(lblScoreTitulo);
+            Controls.Add(picPregunta);
+            Name = "Preguntas";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Preguntas";
+            ((System.ComponentModel.ISupportInitialize)picPregunta).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblPregunta;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label lblScreen;
-        private System.Windows.Forms.Timer countdownTimer;
-        private System.Windows.Forms.Label LabelScore;
+        private PictureBox picPregunta;
+        private Label lblScoreTitulo;
+        private Label lblScore;
+        private Label lblTemporizador;
+        private Label label2;
+        private Label lblPregunta;
+        private Button btnRespuestaA;
+        private Button btnRespuestaB;
+        private Button btnRespuestaC;
+        private Button btnRespuestaD;
+        private Label lblUserName;
+        private System.Windows.Forms.Timer TmrTemporizador;
+        private Label lblCorrecto;
+        private Label lblIncorrecto;
     }
 }
