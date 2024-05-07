@@ -1,20 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace GeoGame
+﻿namespace GeoGame
 {
     public partial class Score : Form
     {
-        public Score(string username, int score, string time)
+        public Score(ScoreEntidad scoreEntidad)
         {
             InitializeComponent();
+            lblUsername.Text = scoreEntidad.Username;
+            llbScore.Text = scoreEntidad.Score.ToString();
+            lblAciertos.Text = scoreEntidad.Aciertos.ToString();
+            lblFallos.Text = scoreEntidad.Fallos.ToString();
         }
+    }
+
+    public class ScoreEntidad
+    {
+        public string Username { get; set; }
+        public int Score { get; set; }
+        public int Aciertos { get; set; }
+        public int Fallos { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace GeoGame
 {
@@ -9,8 +10,14 @@ namespace GeoGame
         private PreguntasYRespuestas preguntasYRespuestas;
         private int indiceActual = 0;
         private readonly Stopwatch stopwatch;
-        private readonly TimeSpan tiempoInicial = TimeSpan.FromSeconds(60);
+        private readonly TimeSpan tiempoInicial = TimeSpan.FromSeconds(10);
+
+        /// <summary>
+        /// 
+        /// </summary>
          static int puntuacion;
+        static int fallos;
+        static int aciertos;
 
         public Preguntas(string username)
         {
@@ -61,6 +68,7 @@ namespace GeoGame
                 MessageBox.Show("No hay más preguntas.");
                 TmrTemporizador.Stop();
                 stopwatch.Stop();
+                FinalizarQuiz();
             }
         }
 
@@ -79,11 +87,12 @@ namespace GeoGame
                 {
                     lblScore.Text = $"{++puntuacion}";
                     lblCorrecto.Enabled = true;
+                    aciertos++;
                 }
                 else
                 {
                     lblIncorrecto.Enabled = true;
-
+                    fallos++;
                     //MessageBox.Show($"Incorrecto. La respuesta correcta era: {preguntaActual.Opciones[claveCorrecta]}.");
                 }
 
@@ -106,6 +115,7 @@ namespace GeoGame
                     MessageBox.Show("Todas las preguntas han sido respondidas.");
                     TmrTemporizador.Stop();
                     stopwatch.Stop();
+                    FinalizarQuiz();
                 }
             }
         }
@@ -124,8 +134,23 @@ namespace GeoGame
                 lblTemporizador.Text = "00:00.000";
                 TmrTemporizador.Stop();
                 stopwatch.Stop();
-                MessageBox.Show("El tiempo se ha agotado!");
+                FinalizarQuiz();
             }
+        }
+
+        void FinalizarQuiz()
+        {
+            Score ventanaNueva = new(new ScoreEntidad
+            {
+                Username = lblUserName.Text,
+                Score = puntuacion,
+                Aciertos = aciertos,
+                Fallos = fallos
+                
+            });
+            this.Hide(); // Oculta la ventana actual
+            ventanaNueva.ShowDialog(); // Muestra la nueva ventana y espera a que se cierre
+            this.Close(); // Cierra definitivamente la ventana original
         }
     }
 }
