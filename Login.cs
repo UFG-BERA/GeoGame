@@ -2,6 +2,7 @@
 {
     public partial class Login : Form
     {
+        static readonly Guid IdUser = Guid.NewGuid();
         public Login()
         {
             InitializeComponent();
@@ -43,7 +44,7 @@
 
         void CerrarYMostrar(string username)
         {
-            Preguntas ventanaNueva = new(username);
+            Preguntas ventanaNueva = new(IdUser, username);
             this.Hide(); // Oculta la ventana actual
             ventanaNueva.ShowDialog(); // Muestra la nueva ventana y espera a que se cierre
             this.Close(); // Cierra definitivamente la ventana original

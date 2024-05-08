@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -7,6 +8,7 @@ namespace GeoGame
 {
     public partial class Preguntas : Form
     {
+        readonly Guid IdUser;
         private PreguntasYRespuestas preguntasYRespuestas;
         private int indiceActual = 0;
         private readonly Stopwatch stopwatch;
@@ -15,13 +17,15 @@ namespace GeoGame
         /// <summary>
         /// 
         /// </summary>
-         static int puntuacion;
-        static int fallos;
-        static int aciertos;
+         
+        int puntuacion = 0;
+        int fallos = 0;
+        int aciertos = 0;
 
-        public Preguntas(string username)
+        public Preguntas(Guid idUser, string username)
         {
             InitializeComponent();
+            IdUser = idUser;
             lblUserName.Text = username;
 
             preguntasYRespuestas = new PreguntasYRespuestas();
@@ -142,6 +146,7 @@ namespace GeoGame
         {
             Score ventanaNueva = new(new ScoreEntidad
             {
+                IdUser = IdUser,
                 Username = lblUserName.Text,
                 Score = puntuacion,
                 Aciertos = aciertos,

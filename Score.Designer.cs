@@ -43,10 +43,10 @@
             // 
             llbScore.AutoSize = true;
             llbScore.Cursor = Cursors.Hand;
-            llbScore.Font = new Font("Showcard Gothic", 18F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            llbScore.Location = new Point(387, 152);
+            llbScore.Font = new Font("Showcard Gothic", 27.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            llbScore.Location = new Point(307, 200);
             llbScore.Name = "llbScore";
-            llbScore.Size = new Size(27, 30);
+            llbScore.Size = new Size(42, 46);
             llbScore.TabIndex = 0;
             llbScore.TabStop = true;
             llbScore.Text = "0";
@@ -133,7 +133,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Showcard Gothic", 18F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(420, 152);
+            label1.Location = new Point(422, 213);
             label1.Name = "label1";
             label1.Size = new Size(106, 30);
             label1.TabIndex = 8;
@@ -153,7 +153,9 @@
             Controls.Add(label2);
             Controls.Add(lblUsername);
             Controls.Add(llbScore);
+            MaximizeBox = false;
             Name = "Score";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Score";
             KeyDown += Score_KeyDown;
             ResumeLayout(false);

@@ -28,32 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ranking));
             lstResultados = new ListView();
             SuspendLayout();
             // 
             // lstResultados
             // 
-            lstResultados.Alignment = ListViewAlignment.SnapToGrid;
-            lstResultados.Dock = DockStyle.Fill;
-            lstResultados.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            resources.ApplyResources(lstResultados, "lstResultados");
             lstResultados.GridLines = true;
-            lstResultados.Location = new Point(0, 0);
+            lstResultados.MultiSelect = false;
             lstResultados.Name = "lstResultados";
-            lstResultados.Size = new Size(800, 450);
-            lstResultados.Sorting = SortOrder.Ascending;
-            lstResultados.TabIndex = 0;
             lstResultados.UseCompatibleStateImageBehavior = false;
-            lstResultados.View = View.List;
+            lstResultados.View = View.Details;
+            lstResultados.SelectedIndexChanged += lstResultados_SelectedIndexChanged;
             // 
             // Ranking
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AllowDrop = true;
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
             Controls.Add(lstResultados);
+            IsMdiContainer = true;
+            KeyPreview = true;
+            MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
             Name = "Ranking";
-            Text = "Ranking";
+            ShowIcon = false;
             Load += Ranking_Load;
+            KeyDown += Ranking_KeyDown;
             ResumeLayout(false);
         }
 

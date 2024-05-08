@@ -1,10 +1,14 @@
-﻿namespace GeoGame
+﻿using Microsoft.VisualBasic.ApplicationServices;
+
+namespace GeoGame
 {
     public partial class Score : Form
     {
+        readonly Guid IdUser;
         public Score(ScoreEntidad scoreEntidad)
         {
             InitializeComponent();
+            IdUser = scoreEntidad.IdUser;
             lblUsername.Text = scoreEntidad.Username;
             llbScore.Text = scoreEntidad.Score.ToString();
             lblAciertos.Text = scoreEntidad.Aciertos.ToString();
@@ -19,7 +23,7 @@
         void VerRanking()
         {
             GuardarClasificacion();
-            Ranking ranking = new();
+            Ranking ranking = new(IdUser, lblUsername.Text);
             this.Hide(); // Oculta la ventana actual
             ranking.ShowDialog(); // Muestra la nueva ventana y espera a que se cierre
             this.Close(); // Cierra definitivamente la ventana original
@@ -38,13 +42,13 @@
 
             // Escribir los datos en un archivo txt
             using StreamWriter sw = new StreamWriter(fullPath, true);
-            sw.WriteLine($"{username} {llbScore.Text}");
+            sw.WriteLine($"{IdUser} {username} {llbScore.Text}");
         }
 
         private void btnReinentar_Click(object sender, EventArgs e)
         {
             string username = lblUsername.Text;
-            Preguntas preguntas = new(username);
+            Preguntas preguntas = new(IdUser,username);
             this.Hide(); // Oculta la ventana actual
             preguntas.ShowDialog(); // Muestra la nueva ventana y espera a que se cierre
             this.Close(); // Cierra definitivamente la ventana original
@@ -61,6 +65,7 @@
 
     public class ScoreEntidad
     {
+        public Guid IdUser { get; set; }
         public string Username { get; set; }
         public int Score { get; set; }
         public int Aciertos { get; set; }
