@@ -41,10 +41,10 @@
             username.AutoSize = true;
             username.BorderStyle = BorderStyle.FixedSingle;
             username.FlatStyle = FlatStyle.Popup;
-            username.Font = new Font("Showcard Gothic", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            username.Location = new Point(153, 148);
+            username.Font = new Font("Romantic", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 2);
+            username.Location = new Point(153, 141);
             username.Name = "username";
-            username.Size = new Size(371, 42);
+            username.Size = new Size(339, 47);
             username.TabIndex = 0;
             username.Text = "Nombre de usuario:";
             // 
@@ -66,7 +66,7 @@
             btnLogin.Cursor = Cursors.Hand;
             btnLogin.Enabled = false;
             btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.Font = new Font("Showcard Gothic", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogin.Font = new Font("Romantic", 21.7499962F, FontStyle.Bold, GraphicsUnit.Point, 2);
             btnLogin.Location = new Point(523, 362);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(265, 76);

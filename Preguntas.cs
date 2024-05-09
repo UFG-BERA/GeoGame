@@ -145,5 +145,20 @@ namespace GeoGame // Define el espacio de nombres para el proyecto.
             ventanaNueva.ShowDialog(); // Muestra la nueva ventana y espera a que se cierre.
             this.Close(); // Cierra definitivamente la ventana original.
         }
+
+        private void lblScoreTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblUserName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

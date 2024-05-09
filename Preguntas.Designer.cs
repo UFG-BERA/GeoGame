@@ -48,7 +48,7 @@
             // 
             // picPregunta
             // 
-            picPregunta.Location = new Point(228, 12);
+            picPregunta.Location = new Point(219, 67);
             picPregunta.Name = "picPregunta";
             picPregunta.Size = new Size(359, 221);
             picPregunta.TabIndex = 0;
@@ -58,17 +58,18 @@
             // 
             lblScoreTitulo.AutoSize = true;
             lblScoreTitulo.Font = new Font("Microsoft Sans Serif", 24.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblScoreTitulo.Location = new Point(22, 46);
+            lblScoreTitulo.Location = new Point(626, 82);
             lblScoreTitulo.Name = "lblScoreTitulo";
-            lblScoreTitulo.Size = new Size(200, 38);
+            lblScoreTitulo.Size = new Size(108, 38);
             lblScoreTitulo.TabIndex = 1;
-            lblScoreTitulo.Text = "Puntuación:";
+            lblScoreTitulo.Text = "Score";
+            lblScoreTitulo.Click += lblScoreTitulo_Click;
             // 
             // lblScore
             // 
             lblScore.AutoSize = true;
             lblScore.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblScore.Location = new Point(97, 84);
+            lblScore.Location = new Point(664, 126);
             lblScore.Name = "lblScore";
             lblScore.Size = new Size(32, 33);
             lblScore.TabIndex = 2;
@@ -78,27 +79,28 @@
             // 
             lblTemporizador.AutoSize = true;
             lblTemporizador.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTemporizador.Location = new Point(602, 67);
+            lblTemporizador.Location = new Point(53, 120);
             lblTemporizador.Name = "lblTemporizador";
-            lblTemporizador.Size = new Size(152, 33);
+            lblTemporizador.Size = new Size(109, 33);
             lblTemporizador.TabIndex = 4;
-            lblTemporizador.Text = "01:00:000";
+            lblTemporizador.Text = "00:000";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 24.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(611, 29);
+            label2.Location = new Point(39, 82);
             label2.Name = "label2";
-            label2.Size = new Size(141, 38);
+            label2.Size = new Size(131, 38);
             label2.TabIndex = 3;
-            label2.Text = "Tiempo:";
+            label2.Text = "Tiempo";
+            label2.Click += label2_Click;
             // 
             // lblPregunta
             // 
             lblPregunta.AutoSize = true;
             lblPregunta.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPregunta.Location = new Point(352, 236);
+            lblPregunta.Location = new Point(251, 311);
             lblPregunta.Name = "lblPregunta";
             lblPregunta.Size = new Size(94, 24);
             lblPregunta.TabIndex = 6;
@@ -107,48 +109,50 @@
             // 
             // btnRespuestaA
             // 
-            btnRespuestaA.Location = new Point(123, 275);
+            btnRespuestaA.Location = new Point(22, 360);
             btnRespuestaA.Name = "btnRespuestaA";
-            btnRespuestaA.Size = new Size(184, 57);
+            btnRespuestaA.Size = new Size(169, 42);
             btnRespuestaA.TabIndex = 7;
             btnRespuestaA.Text = "Respuesta A";
             btnRespuestaA.UseVisualStyleBackColor = true;
             // 
             // btnRespuestaB
             // 
-            btnRespuestaB.Location = new Point(123, 348);
+            btnRespuestaB.Location = new Point(219, 360);
             btnRespuestaB.Name = "btnRespuestaB";
-            btnRespuestaB.Size = new Size(184, 57);
+            btnRespuestaB.Size = new Size(169, 42);
             btnRespuestaB.TabIndex = 8;
             btnRespuestaB.Text = "Respuesta B";
             btnRespuestaB.UseVisualStyleBackColor = true;
             // 
             // btnRespuestaC
             // 
-            btnRespuestaC.Location = new Point(498, 275);
+            btnRespuestaC.Location = new Point(409, 360);
             btnRespuestaC.Name = "btnRespuestaC";
-            btnRespuestaC.Size = new Size(184, 57);
+            btnRespuestaC.Size = new Size(169, 42);
             btnRespuestaC.TabIndex = 9;
             btnRespuestaC.Text = "Respuesta C";
             btnRespuestaC.UseVisualStyleBackColor = true;
             // 
             // btnRespuestaD
             // 
-            btnRespuestaD.Location = new Point(498, 348);
+            btnRespuestaD.BackColor = Color.Transparent;
+            btnRespuestaD.Location = new Point(596, 360);
             btnRespuestaD.Name = "btnRespuestaD";
-            btnRespuestaD.Size = new Size(184, 57);
+            btnRespuestaD.Size = new Size(169, 42);
             btnRespuestaD.TabIndex = 10;
             btnRespuestaD.Text = "Respuesta D";
-            btnRespuestaD.UseVisualStyleBackColor = true;
+            btnRespuestaD.UseVisualStyleBackColor = false;
             // 
             // lblUserName
             // 
-            lblUserName.AutoSize = true;
-            lblUserName.Location = new Point(91, 29);
+            lblUserName.Font = new Font("Microsoft Sans Serif", 24.75F, FontStyle.Bold);
+            lblUserName.Location = new Point(318, 9);
             lblUserName.Name = "lblUserName";
-            lblUserName.Size = new Size(62, 15);
+            lblUserName.Size = new Size(155, 48);
             lblUserName.TabIndex = 11;
             lblUserName.Text = "UserName";
+            lblUserName.Click += lblUserName_Click;
             // 
             // TmrTemporizador
             // 
@@ -161,7 +165,7 @@
             lblCorrecto.Enabled = false;
             lblCorrecto.Font = new Font("Segoe UI Black", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             lblCorrecto.ForeColor = Color.Lime;
-            lblCorrecto.Location = new Point(97, 159);
+            lblCorrecto.Location = new Point(75, 228);
             lblCorrecto.Name = "lblCorrecto";
             lblCorrecto.Size = new Size(55, 37);
             lblCorrecto.TabIndex = 12;
@@ -174,7 +178,7 @@
             lblIncorrecto.Enabled = false;
             lblIncorrecto.Font = new Font("Segoe UI Black", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             lblIncorrecto.ForeColor = Color.Red;
-            lblIncorrecto.Location = new Point(665, 150);
+            lblIncorrecto.Location = new Point(655, 228);
             lblIncorrecto.Name = "lblIncorrecto";
             lblIncorrecto.Size = new Size(55, 37);
             lblIncorrecto.TabIndex = 13;
@@ -184,6 +188,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightSteelBlue;
             ClientSize = new Size(777, 450);
             Controls.Add(lblIncorrecto);
             Controls.Add(lblCorrecto);

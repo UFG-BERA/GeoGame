@@ -40,7 +40,30 @@ namespace GeoGame // Define el espacio de nombres para el proyecto.
             ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Italia?", "Roma", "ITALIA.png"));
             ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Japón?", "Tokio", "JAPON.png"));
             ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Alemania?", "Berlín", "ALEMANIA.png"));
-            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de España?", "Madrid", "ESPAñA.png"));
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de España?", "Madrid", "ESPAÑA.png"));
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Canadá?", "Ottawa", "CANADA.png"));
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Australia?", "Canberra", "AUSTRALIA.png"));
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Brasil?", "Brasilia", "BRASIL.png"));
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de México?", "Ciudad de México", "MEXICO.png"));
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Rusia?", "Moscú", "RUSIA.png"));
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de China?", "Pekín", "CHINA.png"));
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de India?", "Nueva Delhi", "INDIA.png"));
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Egipto?", "El Cairo", "EGIPTO.png"));
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Argentina?", "Buenos Aires", "ARGENTINA.png"));
+            //ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Chile?", "Santiago", "CHILE.png"));/////////
+            //ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Sudáfrica?", "Pretoria", "SUDAFRICA.png"));/////////
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Turquía?", "Ankara", "TURQUIA.png"));
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Corea del Sur?", "Seúl", "COREA_SUR.png"));
+            //ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Vietnam?", "Hanoi", "VIETNAM.png"));///////
+            //ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Grecia?", "Atenas", "GRECIA.png"));/////////
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Portugal?", "Lisboa", "PORTUGAL.png"));
+            ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Suecia?", "Estocolmo", "SUECIA.png"));
+            //ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Noruega?", "Oslo", "NORUEGA.png")); ///////////
+            //ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Dinamarca?", "Copenhague", "DINAMARCA.png"));///////////
+            //ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Suiza?", "Berna", "SUIZA.png"));////////////////
+            //ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Finlandia?", "Helsinki", "FINLANDIA.png"));
+            //ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Nueva Zelanda?", "Wellington", "NUEVA_ZELANDA.png"));//////////
+            //ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Polonia?", "Varsovia", "POLONIA.png"));//////////////////
 
             // Llama a los métodos para recolectar todas las respuestas, distribuirlas entre las preguntas y mezclar las preguntas.
             RecolectarRespuestas();
@@ -52,8 +75,23 @@ namespace GeoGame // Define el espacio de nombres para el proyecto.
         {
             // Crea una lista con todas las respuestas correctas de las preguntas.
             TodasLasRespuestas = ListaPreguntas.Select(p => p.RespuestaCorrecta).ToList();
+
             // Añade respuestas incorrectas adicionales para completar la lista.
-            TodasLasRespuestas.AddRange(new List<string> { "Barcelona", "Lisboa", "Atenas", "Seúl", "Bangkok", "Pekín", "Varsovia", "Ámsterdam", "Viena" });
+            TodasLasRespuestas.AddRange(new List<string>
+    {
+        "Barcelona", "Lisboa", "Atenas", "Seúl", "Bangkok", "Pekín",
+        "Varsovia", "Ámsterdam", "Viena", "Estocolmo", "Oslo",
+        "Copenhague", "Bruselas", "Luxemburgo", "Sofía", "Tallin",
+        "Zagreb", "Vilna", "Liubliana", "Bratislava", "Budapest",
+        "Sarajevo", "Belgrado", "Praga", "Riga", "Helsinki",
+        "Montevideo", "Caracas", "Quito", "La Paz", "Bogotá",
+        "Panamá", "Reikiavik", "Marrakech", "Kuala Lumpur", "Singapur",
+        "Wellington", "Sydney", "San Petersburgo", "Venecia", "Florencia",
+        "Edimburgo", "Londres", "Nueva York", "Los Ángeles", "Houston",
+        "Santiago", "San José", "Puerto Príncipe", "Kingston", "San Salvador",
+        "Tegucigalpa", "Managua", "Georgetown", "Paramaribo", "Asunción",
+        "Sucre", "Guayaquil", "Manila", "Taipei", "Riad", "Dubái"
+    });
 
             // Mezcla todas las respuestas usando un generador aleatorio.
             TodasLasRespuestas = TodasLasRespuestas.OrderBy(x => rng.Next()).ToList();

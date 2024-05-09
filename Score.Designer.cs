@@ -44,7 +44,7 @@
             llbScore.AutoSize = true;
             llbScore.Cursor = Cursors.Hand;
             llbScore.Font = new Font("Showcard Gothic", 27.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            llbScore.Location = new Point(307, 200);
+            llbScore.Location = new Point(290, 173);
             llbScore.Name = "llbScore";
             llbScore.Size = new Size(42, 46);
             llbScore.TabIndex = 0;
@@ -56,20 +56,20 @@
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Font = new Font("Showcard Gothic", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblUsername.Location = new Point(12, 9);
+            lblUsername.Font = new Font("Romantic", 24F, FontStyle.Bold, GraphicsUnit.Point, 2);
+            lblUsername.Location = new Point(308, 34);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(190, 40);
+            lblUsername.Size = new Size(150, 39);
             lblUsername.TabIndex = 1;
             lblUsername.Text = "username";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Showcard Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(221, 104);
+            label2.Font = new Font("Romantic", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 2);
+            label2.Location = new Point(218, 96);
             label2.Name = "label2";
-            label2.Size = new Size(350, 33);
+            label2.Size = new Size(372, 45);
             label2.TabIndex = 2;
             label2.Text = "Tu puntuación fue de:";
             // 
@@ -77,7 +77,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(12, 376);
+            label3.Location = new Point(108, 377);
             label3.Name = "label3";
             label3.Size = new Size(180, 20);
             label3.TabIndex = 3;
@@ -87,7 +87,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(12, 418);
+            label4.Location = new Point(433, 374);
             label4.Name = "label4";
             label4.Size = new Size(157, 20);
             label4.TabIndex = 4;
@@ -99,7 +99,7 @@
             lblAciertos.FlatStyle = FlatStyle.Flat;
             lblAciertos.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAciertos.ForeColor = Color.Green;
-            lblAciertos.Location = new Point(190, 371);
+            lblAciertos.Location = new Point(307, 374);
             lblAciertos.Name = "lblAciertos";
             lblAciertos.Size = new Size(25, 25);
             lblAciertos.TabIndex = 5;
@@ -110,7 +110,7 @@
             lblFallos.AutoSize = true;
             lblFallos.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblFallos.ForeColor = Color.Red;
-            lblFallos.Location = new Point(167, 413);
+            lblFallos.Location = new Point(627, 371);
             lblFallos.Name = "lblFallos";
             lblFallos.Size = new Size(25, 25);
             lblFallos.TabIndex = 6;
@@ -118,24 +118,25 @@
             // 
             // btnReinentar
             // 
-            btnReinentar.Font = new Font("Showcard Gothic", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReinentar.ForeColor = SystemColors.ActiveCaptionText;
-            btnReinentar.Location = new Point(502, 376);
+            btnReinentar.BackColor = Color.LightSlateGray;
+            btnReinentar.Font = new Font("Romantic", 35.9999962F, FontStyle.Bold, GraphicsUnit.Point, 2);
+            btnReinentar.ForeColor = SystemColors.ButtonFace;
+            btnReinentar.Location = new Point(244, 263);
             btnReinentar.Name = "btnReinentar";
             btnReinentar.Size = new Size(286, 62);
             btnReinentar.TabIndex = 7;
             btnReinentar.Tag = "Volver a jugar";
             btnReinentar.Text = "Reintentar";
-            btnReinentar.UseVisualStyleBackColor = true;
+            btnReinentar.UseVisualStyleBackColor = false;
             btnReinentar.Click += btnReinentar_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Showcard Gothic", 18F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(422, 213);
+            label1.Font = new Font("Romantic", 21.7499962F, FontStyle.Bold, GraphicsUnit.Point, 2);
+            label1.Location = new Point(373, 184);
             label1.Name = "label1";
-            label1.Size = new Size(106, 30);
+            label1.Size = new Size(101, 35);
             label1.TabIndex = 8;
             label1.Text = "Puntos";
             // 
@@ -143,6 +144,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightSteelBlue;
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
             Controls.Add(btnReinentar);
