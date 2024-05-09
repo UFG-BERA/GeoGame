@@ -8,7 +8,7 @@ namespace GeoGame // Define el espacio de nombres para el proyecto.
         private PreguntasYRespuestas preguntasYRespuestas; // Objeto que contendrá las preguntas y respuestas.
         private int indiceActual = 0; // Índice que señala la pregunta actual.
         private readonly Stopwatch stopwatch; // Cronómetro para medir el tiempo transcurrido.
-        private readonly TimeSpan tiempoInicial = TimeSpan.FromSeconds(10); // Tiempo inicial para cada pregunta, en segundos.
+        private readonly TimeSpan tiempoInicial = TimeSpan.FromSeconds(60); // Tiempo inicial para cada pregunta, en segundos.
 
         /// <summary>
         /// Campos que registran la puntuación, errores y aciertos.
