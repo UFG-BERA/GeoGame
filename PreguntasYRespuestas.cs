@@ -1,94 +1,97 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System; // Proporciona clases básicas y excepciones.
+using System.Collections.Generic; // Proporciona clases para listas y diccionarios.
+using System.Linq; // Proporciona funcionalidades para manipulación de colecciones.
 
-namespace GeoGame
+namespace GeoGame // Define el espacio de nombres para el proyecto.
 {
-    public class Pregunta
+    public class Pregunta // Clase que representa una pregunta con varias opciones.
     {
-        public string TextoPregunta { get; set; }
-        public Dictionary<string, string> Opciones { get; set; }
-        public string RespuestaCorrecta { get; set; }
-        public string UrlImagen { get; set; }
+        public string TextoPregunta { get; set; } // Texto que contiene la pregunta.
+        public Dictionary<string, string> Opciones { get; set; } // Opciones de respuesta disponibles, mapeadas por clave (a, b, c, d).
+        public string RespuestaCorrecta { get; set; } // Clave de la opción correcta.
+        public string UrlImagen { get; set; } // Ruta a la imagen asociada a la pregunta.
 
-        public Pregunta(string textoPregunta, string respuestaCorrecta, string urlImagen)
+        public Pregunta(string textoPregunta, string respuestaCorrecta, string urlImagen) // Constructor que inicializa una nueva pregunta.
         {
-            TextoPregunta = textoPregunta;
-            RespuestaCorrecta = respuestaCorrecta;
-            UrlImagen = urlImagen;
-            Opciones = new Dictionary<string, string>();
+            TextoPregunta = textoPregunta; // Asigna el texto de la pregunta.
+            RespuestaCorrecta = respuestaCorrecta; // Asigna la respuesta correcta (nombre).
+            UrlImagen = urlImagen; // Asigna la URL de la imagen.
+            Opciones = new Dictionary<string, string>(); // Inicializa el diccionario vacío para las opciones de respuesta.
         }
     }
 
-    public class PreguntasYRespuestas
+    public class PreguntasYRespuestas // Clase que administra una lista de preguntas y respuestas.
     {
-        public List<Pregunta> ListaPreguntas { get; private set; }
-        private List<string> TodasLasRespuestas;
-        private Random rng;
+        public List<Pregunta> ListaPreguntas { get; private set; } // Lista de preguntas que se usarán.
+        private List<string> TodasLasRespuestas; // Lista de todas las respuestas disponibles (correctas e incorrectas).
+        private Random rng; // Generador de números aleatorios para mezclar respuestas y preguntas.
 
-        public PreguntasYRespuestas()
+        public PreguntasYRespuestas() // Constructor que inicializa las preguntas y respuestas.
         {
-            rng = new Random();
-            ListaPreguntas = new List<Pregunta>();
-            CargarPreguntas();
+            rng = new Random(); // Inicializa el generador de números aleatorios.
+            ListaPreguntas = new List<Pregunta>(); // Inicializa la lista vacía de preguntas.
+            CargarPreguntas(); // Llama al método para cargar las preguntas en la lista.
         }
 
-        private void CargarPreguntas()
+        private void CargarPreguntas() // Método para cargar todas las preguntas en la lista.
         {
-            // Añadir todas las preguntas
+            // Añade preguntas específicas a la lista, especificando el texto, respuesta correcta y la URL de la imagen.
             ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Francia?", "París", "FRANCIA.png"));
             ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Italia?", "Roma", "ITALIA.png"));
             ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Japón?", "Tokio", "JAPON.png"));
             ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de Alemania?", "Berlín", "ALEMANIA.png"));
             ListaPreguntas.Add(new Pregunta("¿Cuál es la capital de España?", "Madrid", "ESPAñA.png"));
 
-            // Llama a los métodos para recolectar y distribuir respuestas
+            // Llama a los métodos para recolectar todas las respuestas, distribuirlas entre las preguntas y mezclar las preguntas.
             RecolectarRespuestas();
             DistribuirRespuestas();
             MezclarPreguntas();
         }
 
-        private void RecolectarRespuestas()
+        private void RecolectarRespuestas() // Método para recolectar todas las respuestas posibles.
         {
-            // Recolecta todas las respuestas correctas e incorrectas
+            // Crea una lista con todas las respuestas correctas de las preguntas.
             TodasLasRespuestas = ListaPreguntas.Select(p => p.RespuestaCorrecta).ToList();
+            // Añade respuestas incorrectas adicionales para completar la lista.
             TodasLasRespuestas.AddRange(new List<string> { "Barcelona", "Lisboa", "Atenas", "Seúl", "Bangkok", "Pekín", "Varsovia", "Ámsterdam", "Viena" });
 
-            // Mezcla todas las respuestas
+            // Mezcla todas las respuestas usando un generador aleatorio.
             TodasLasRespuestas = TodasLasRespuestas.OrderBy(x => rng.Next()).ToList();
         }
 
-        private void DistribuirRespuestas()
+        private void DistribuirRespuestas() // Método para distribuir las respuestas a cada pregunta.
         {
-            foreach (var pregunta in ListaPreguntas)
+            foreach (var pregunta in ListaPreguntas) // Recorre cada pregunta en la lista.
             {
-                // Elige un subconjunto de respuestas incorrectas, incluyendo siempre la correcta
+                // Selecciona un subconjunto de tres respuestas incorrectas y agrega la correcta.
                 var respuestasOpciones = TodasLasRespuestas
-                    .Where(r => r != pregunta.RespuestaCorrecta)
-                    .OrderBy(x => rng.Next())
-                    .Take(3)
-                    .ToList();
+                    .Where(r => r != pregunta.RespuestaCorrecta) // Excluye la respuesta correcta.
+                    .OrderBy(x => rng.Next()) // Mezcla las respuestas.
+                    .Take(3) // Toma tres respuestas incorrectas.
+                    .ToList(); // Convierte a lista.
 
+                // Añade la respuesta correcta.
                 respuestasOpciones.Add(pregunta.RespuestaCorrecta);
+                // Vuelve a mezclar todas las respuestas para asignarlas a las opciones.
                 respuestasOpciones = respuestasOpciones.OrderBy(x => rng.Next()).ToList();
 
-                // Asigna las opciones mezcladas a la pregunta
+                // Asigna las opciones mezcladas a la pregunta.
                 pregunta.Opciones = new Dictionary<string, string>
                 {
-                    {"a", respuestasOpciones[0]},
-                    {"b", respuestasOpciones[1]},
-                    {"c", respuestasOpciones[2]},
-                    {"d", respuestasOpciones[3]}
+                    {"a", respuestasOpciones[0]}, // Opción A.
+                    {"b", respuestasOpciones[1]}, // Opción B.
+                    {"c", respuestasOpciones[2]}, // Opción C.
+                    {"d", respuestasOpciones[3]} // Opción D.
                 };
 
-                // Encuentra la clave correcta en el nuevo conjunto de opciones
+                // Encuentra la clave correcta en el nuevo conjunto de opciones.
                 pregunta.RespuestaCorrecta = pregunta.Opciones.First(kvp => kvp.Value == pregunta.RespuestaCorrecta).Key;
             }
         }
 
-        private void MezclarPreguntas()
+        private void MezclarPreguntas() // Método para mezclar el orden de las preguntas.
         {
-            // Mezcla la lista completa de preguntas
+            // Mezcla la lista completa de preguntas usando un generador aleatorio.
             ListaPreguntas = ListaPreguntas.OrderBy(x => rng.Next()).ToList();
         }
     }
